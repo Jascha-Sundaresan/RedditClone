@@ -1,0 +1,16 @@
+<h2>New Subforum</h2>
+
+<form action="subs_url" method="post">
+  <%= auth_token %>
+  
+  <label for="subname">Your Sub's Title</label>
+  <input id="sub_title"
+         name="sub[title]"
+         type="text">
+         
+  <label for="desc">Description</label>
+  <input id="desc"
+         name="sub[description]"
+         type="textarea">
+         
+  <%= submit("New Sub") %>
