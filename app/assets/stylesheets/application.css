@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+.sub form {
+  display:inline-block; 
+  /* display: inline-block; means it will be OK with being on the same
+   line as other inline elements */
+}

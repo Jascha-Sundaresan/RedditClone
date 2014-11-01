@@ -1,0 +1,10 @@
+<%= @sub.title %>
+<br>
+<%= @sub.description %>
+<br>
+<% if @sub.posts %>
+  <% @sub.posts.each do | post |  %>
+    <a href="<%= post_url(post) %>"><%= post.title %></a>
+  <% end %>
+<% end %>
+<%= button_to "Create Post", new_sub_post_url(@sub), method: :get %>

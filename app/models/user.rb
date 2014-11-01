@@ -20,7 +20,15 @@ class User < ActiveRecord::Base
   
   has_many(
     :subs,
-    foreign_key: :moderator_id
+    foreign_key: :moderator_id,
+    dependent: :destroy
+  )
+  
+  has_many(
+    :posts,
+    class_name: "Post",
+    foreign_key: :author_id,
+    primary_key: :id
   )
   
   def self.find_by_credentials(name, password)

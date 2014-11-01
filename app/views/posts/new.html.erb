@@ -1,0 +1,22 @@
+<h2>New Post!</h2>
+
+<form action="<%= sub_posts_url(@sub) %>" method="post">
+  <%= auth_token %>
+  
+  <label for="title">Title</label>
+  <input id="title"
+         name="post[title]"
+         type="text">
+         
+  <label for="URL">URL</label>
+  <input id="URL"
+         name="post[URL]"
+         type="text">
+         
+  <label for="Content">Content</label>
+  <input id="Content"
+         name="post[content]"
+         type="textarea">
+                
+  <%= submit("create New Post") %>
+</form>

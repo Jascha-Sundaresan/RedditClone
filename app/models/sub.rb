@@ -2,12 +2,12 @@
 #
 # Table name: subs
 #
-#  id          :integer          not null, primary key
-#  title       :string(255)
-#  description :string(255)
-#  moderator   :integer
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id           :integer          not null, primary key
+#  title        :string(255)
+#  description  :string(255)
+#  moderator_id :integer
+#  created_at   :datetime
+#  updated_at   :datetime
 #
 
 class Sub < ActiveRecord::Base
@@ -20,4 +20,7 @@ class Sub < ActiveRecord::Base
     foreign_key: :moderator_id,
     primary_key: :id
   )
+  
+  has_many :posts, dependent: :destroy
+  
 end

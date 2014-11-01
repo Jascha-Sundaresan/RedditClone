@@ -1,0 +1,11 @@
+<%= @post.title %>
+<br>
+<%= @post.url %>
+<br>
+<%= @post.content %>
+<br>
+
+<% if current_user.id == @post.author_id %>
+  <%= button_to "Edit post", edit_post_url(@post), method: :get %> 
+  <%= button_to "Delete post", post_url(@post), method: :delete %>
+<% end %>

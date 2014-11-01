@@ -1,0 +1,15 @@
+<ul>
+<% if @subs %>
+  <% @subs.each do | sub | %>
+  <li class='sub'>
+    <a href="<%= sub_url(sub) %>"><%= sub.title %></a>
+    <%= button_to "Update #{sub.title}",
+                  edit_sub_url(sub),
+                  method: :get %>
+    <%= button_to "Delete #{sub.title}",
+                  sub_url(sub),
+                  method: :delete %>
+  </li>
+  <% end %>
+<% end %>
+</ul>

@@ -1,6 +1,6 @@
 <h2>New Subforum</h2>
 
-<form action="subs_url" method="post">
+<form action="<%= user_subs_url(@user) %>" method="post">
   <%= auth_token %>
   
   <label for="subname">Your Sub's Title</label>
@@ -14,3 +14,4 @@
          type="textarea">
          
   <%= submit("New Sub") %>
+</form>

@@ -1,0 +1,20 @@
+<h2>Edit Subforum</h2>
+
+<form action="<%= sub_url(@sub) %>" method="post">
+  <input name="_method" type="hidden" value="patch" />
+  <%= auth_token %>
+  
+  <label for="subname">Sub's New Title</label>
+  <input id="sub_title"
+         name="sub[title]"
+         type="text"
+         value="<%= @sub.title %>">
+         
+  <label for="desc">New Description</label>
+  <input id="desc"
+         name="sub[description]"
+         type="textarea"
+         value="<%= @sub.description %>">
+         
+  <%= submit("Update Sub") %>
+</form>

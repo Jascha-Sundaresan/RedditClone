@@ -4,16 +4,17 @@ class SessionsController < ApplicationController
   end
   
   def create
-    user = User.find_by_credentials(params[:user][:name],
+    @user = User.find_by_credentials(params[:user][:name],
                                     params[:user][:password])
-    if user.nil?
-      flash.now[:errors] = @user.errors.full_messages
+    if @user.nil?
+      flash.now[:errors] ||= []
+      flash.now[:errors] << "Bad Email/Password combination"
       render :new
     else
-      sign_in!(user)
-      flash[:welcome] ||= []
-      flash[:welcome] << "Welcome back, #{@user.name}!"
-      redirect_to root
+      sign_in!(@user)
+      flash[:messages] ||= []
+      flash[:messages] << "Welcome back, #{@user.name}!"
+      redirect_to new_user_sub_url(@user)
     end                                    
   end
   
